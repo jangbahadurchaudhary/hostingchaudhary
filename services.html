@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Services</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Explore the services offered by Chaudhary Webhosting: website development, SEO, domain setup, hosting, and more." />
+  <meta name="keywords" content="chaudhary webhosting services, website development, , cloudflare, domain free, webhosting, Services" />
+  <meta name="author" content="Chaudhary Webhosting" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+<link rel="shortcut icon" href="/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="/favicon/site.webmanifest" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: black;
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #06b6d4, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .typing::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+    .hover:hover { color: aqua; }
+    #logo { width: 100px; height: 50px; }
+  </style>
+</head>
+<body class="text-white">
+  <!-- Navbar -->
+  <nav class="bg-black text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="new-logo.png" alt="Chaudhary Webhosting Logo" id="logo" />
+        <span class="text-2xl font-bold gradient-text">Chaudhary Webhosting</span>
+      </a>
+      <button id="menuToggle" class="lg:hidden text-white text-3xl focus:outline-none">&#9776;</button>
+      <div id="navLinks" class="hidden lg:flex space-x-6 items-center">
+        <a href="index.html" class="hover">Home</a>
+        <a href="features.html" class="hover">Features</a>
+        <a href="index.html#pricing" class="hover">Plans</a>
+        <a href="about.html" class="hover">About</a>
+        <a href="services.html" class="hover">Services</a>
+        <a href="tel:+919369198105" class="bg-cyan-400 text-white px-3 py-1 rounded hover:bg-cyan-300 font-bold">📞 +91 9369198105</a>
+      </div>
+    </div>
+    <div id="mobileMenu" class="lg:hidden hidden mt-4 px-4 space-y-2 flex flex-col bg-black text-white rounded-md">
+      <a href="index.html#home" class="hover">Home</a>
+      <a href="features.html" class="hover">Features</a>
+      <a href="index.html#pricing" class="hover">Plans</a>
+      <a href="about.html" class="hover">About</a>
+      <a href="services.html" class="hover">Services</a>
+      <a href="tel:+919369198105" class="bg-cyan-400 text-white px-3 py-1 rounded hover:bg-cyan-300 font-bold">📞 +91 9369198105</a>
+    </div>
+  </nav>
+
+  <!-- Services Section -->
+  <section class="p-4">
+    <div class="bg-gradient-to-r from-cyan-400 to-blue-500 p-4 rounded-lg text-center mb-8">
+      <h1 class="text-3xl font-bold">Services We Give</h1>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <ul class="space-y-4 text-lg">
+        <li class="bg-gray-800 p-4 rounded-lg">✅ <strong>Custom Website Development:</strong> From landing pages to full business websites—we deliver beautiful, responsive designs tailored to your vision.</li>
+        <li class="bg-gray-800 p-4 rounded-lg">✅ <strong>SEO Optimization:</strong> Get discovered on Google! Our SEO service boosts your site’s ranking to drive more traffic and real results.</li>
+        <li class="bg-gray-800 p-4 rounded-lg">✅ <strong>SSL Certificate Integration:</strong> Protect your site and your customers with free SSL certificates—keeping data safe and trust high.</li>
+        <li class="bg-gray-800 p-4 rounded-lg">✅ <strong>Business Email Setup:</strong> Look professional with a custom email ID like rohan@rohanelectronics.com—easy to use and fully secure.</li>
+        <li class="bg-gray-800 p-4 rounded-lg">✅ <strong>Website Speed & Performance Boosting:</strong> We fine-tune your site for blazing-fast load times and better user experience on all devices.</li>
+        <li class="bg-gray-800 p-4 rounded-lg">✅ <strong>Custom Domain Registration:</strong> Claim your unique online identity with easy domain setup and support for .com, .in, .tech, and more.</li>
+        <li class="bg-gray-800 p-4 rounded-lg">✅ <strong>Cloud Hosting Solutions:</strong> Scalable, secure cloud hosting for fast, flexible deployments—ideal for growing businesses.</li>
+        <li class="bg-gray-800 p-4 rounded-lg">✅ <strong>Google AdSense Integration:</strong> Monetize your site with smart ad placements and optimized revenue strategies using Google tools.</li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="bg-black text-white text-center py-6 mt-10">
+    <p>Chaudhary Jang Bahadur</p>
+  
+    <p>&copy; 2025 Chaudhary Webhosting. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+
+      toggleBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

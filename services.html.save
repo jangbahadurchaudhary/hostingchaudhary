@@ -1,0 +1,131 @@
+<0!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="UTF-8">
+  <meta name="description" content="This page is for webhosting services">
+  <meta name="keywords" content="Webhosting services , chaudharywebhosting.online, chaudharywebhosting, webdevlopment services , websitedevlopment services">
+  <meta name="author" content="chaudhar420">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chaudhary Webhosting services</title>
+
+    <style>
+       body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: black;
+    }
+    .navbar {
+      display: flex;
+      background-color: #333;
+      padding: 10px;
+      display: inline-block;
+    }
+    .navbar a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      text-align: center;
+      
+    }
+   .navbar a:hover {
+      background-color: #575757;
+    }
+    
+    #hacker{
+        padding-left: 728.5px;
+        display: inline;
+        
+    }
+
+
+#services{
+    color: rgb(0, 0, 0);
+    background-color:aqua;
+}
+h1{
+    color: beige;
+    font-family: 'Lucida Sans';
+    text-align: center;
+}
+ 
+p{
+    color: white;
+    font-size: larger;
+}
+table{
+    
+    font-size: 19px;
+}
+
+
+
+    .rgb-border-wrapper {
+      position: relative;
+      padding: 4px; /* Border thickness */
+      border-radius: 12px;
+      background: linear-gradient(270deg, red, orange, yellow, green, cyan, blue, violet, red);
+      background-size: 600% 600%;
+      animation: borderSlide 6s linear infinite;
+    }
+
+    .glow-box {
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 10px 20px;
+      border-radius: 10px;
+      z-index: 1;
+    }
+
+    @keyframes borderSlide {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+  
+
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  <a id="services" href="#services">Services</a>
+
+      
+      <a id="hacker" href="tel:+911234567890"> 📞+91 12345 67890</a></div>
+       <div class="rgb-border-wrapper">
+    <div class="glow-box"><H1>Services We give </H1></div>
+       </div>
+
+      <table border="1">
+        <tr><th>
+      <p>* Custom Website Development From landing pages to full business websites—we deliver beautiful, responsive designs tailored to your vision.</p>
+   
+   </tr></th><tr><th>
+   
+      <p>* SEO Optimization Get discovered on Google! Our SEO service boosts your site’s ranking to drive more traffic and real results.</p>
+    </tr></th><tr><th>
+    <p>* SSL Certificate Integration Protect your site and your customers with free SSL certificates—keeping data safe and trust high.
+    
+    </p></tr></th>
+<tr><th>
+    
+    <p>* Business Email Setup Look professional with a custom email ID like rohan@rohanelectornics.com—easy to use and fully secure.</p>
+</tr></th> <tr><th>
+    <p>* Website Speed & Performance Boosting We fine-tune your site for blazing-fast load times and better user experience on all devices.</p>
+
+</tr></th>
+      </table>
+
+
+
+
+</body>
+
+</html>
+
+
