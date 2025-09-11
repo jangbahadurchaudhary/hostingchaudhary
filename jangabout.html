@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>About Chaudhary Jang Bahadur</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Meet Chaudhary Jang Bahadur — cybersecurity expert, smart device innovator, and founder of Chaudhary Webhosting. Net worth ₹10 Crore+. Building secure, eco-friendly tech solutions." />
+  <meta name="keywords" content="Chaudhary Jang Bahadur, cybersecurity expert, smart home automation, eco-friendly tech, webhosting India" />
+  <meta name="author" content="Chaudhary Webhosting" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="English" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="About Chaudhary Jang Bahadur" />
+  <meta property="og:description" content="Cybersecurity expert and smart device builder. Learn more about Chaudhary Jang Bahadur." />
+  <meta property="og:image" content="/your-photo.jpg" />
+  <meta property="og:url" content="https://chaudharywebhosting.online/about.html" />
+  <meta property="og:type" content="website" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+    .gradient-text {
+      background: linear-gradient(to right, #06b6d4, #3b82f6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hover:hover {
+      color: aqua;
+    }
+    #logo {
+      width: 100px;
+      height: 50px;
+    }
+    .profile-img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 9999px;
+      margin: 0 auto 20px;
+      border: 4px solid #3b82f6;
+    }
+  </style>
+</head>
+
+<body class="bg-black text-white">
+
+  <!-- Navbar -->
+  <nav class="bg-black text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="new-logo.png" alt="Chaudhary Webhosting Logo" id="logo" />
+        <span class="text-2xl font-bold gradient-text">Chaudhary Webhosting</span>
+      </a>
+      <button id="menuToggle" class="lg:hidden text-white text-3xl">&#9776;</button>
+      <div id="navLinks" class="hidden lg:flex space-x-6 items-center">
+        <a href="index.html" class="hover">Home</a>
+        <a href="features.html" class="hover">Features</a>
+        <a href="index.html#pricing" class="hover">Plans</a>
+        <a href="#about" class="hover">About</a>
+        <a href="services.html" class="hover">Services</a>
+        <a href="tel:+919369198105" class="bg-cyan-400 text-white px-3 py-1 rounded hover:bg-cyan-300 font-bold">📞 +91 9369198105</a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="lg:hidden hidden mt-4 px-4 space-y-2 flex flex-col bg-black text-white rounded-md">
+      <a href="index.html" class="hover">Home</a>
+      <a href="features.html" class="hover">Features</a>
+      <a href="index.html#pricing" class="hover">Plans</a>
+      <a href="#about" class="hover">About</a>
+      <a href="services.html" class="hover">Services</a>
+      <a href="tel:+919369198105" class="bg-cyan-400 text-white px-3 py-1 rounded hover:bg-cyan-300 font-bold">📞 +91 9369198105</a>
+    </div>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 text-center bg-black text-white">
+    <h2 class="text-3xl font-bold mb-6">About Me</h2>
+    <img src="/your-photo.jpg" alt="Chaudhary Jang Bahadur" class="profile-img" />
+    <p class="max-w-3xl mx-auto text-lg leading-relaxed">
+      I’m <strong>Chaudhary Jang Bahadur</strong>, a cybersecurity expert, IoT innovator, and founder of Chaudhary Webhosting. With a net worth exceeding <strong>₹10 Crore</strong>, I’ve built a reputation for designing secure, scalable, and eco-friendly smart devices and automation systems.
+      <br /><br />
+      My work spans across <strong>home automation, smart electronics, and privacy-first web platforms</strong>. I reverse-engineer consumer hardware, build custom firmware, and architect secure digital environments tailored to modern needs.
+      <br /><br />
+      Whether it’s a smart bulb, a pick-and-place machine, or a fully managed hosting solution, I bring precision, performance, and sustainability to every project. My mission is simple: empower businesses and individuals with technology that’s fast, secure, and future-ready.
+      <br /><br />
+      From SEO-optimized websites to stealth-grade automation systems, I offer end-to-end solutions with 24/7 support and zero compromise on quality.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white text-center py-6">
+    <p>&copy; 2025 Chaudhary Webhosting. All rights reserved.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggleBtn = document.getElementById('menuToggle');
+      const mobileMenu = document.getElementById('mobileMenu');
+      toggleBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
