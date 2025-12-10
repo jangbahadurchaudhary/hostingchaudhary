@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>C420 3D Printing Service's — Rapid Prototyping & Precision Parts</title>
+  <meta name="description" content="C420 3D Printing Service's offers rapid prototyping, custom parts, and small-batch manufacturing with FDM, SLA, and SLS. Get instant quotes and WhatsApp support." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧩</text></svg>">
+  <style>
+    :root{
+      --bg:#0b0f1a;
+      --bg2:#0e1424;
+      --card:#121a2f;
+      --accent:#38bdf8;
+      --accent2:#8b5cf6;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --success:#22c55e;
+      --warn:#f59e0b;
+      --danger:#ef4444;
+      --glass:rgba(255,255,255,0.06);
+      --border:rgba(255,255,255,0.12);
+      --shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;background:radial-gradient(1200px 600px at 10% 0%, #101833 10%, var(--bg) 60%), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%);
+      color:var(--text);font-family:Inter,system-ui,Segoe UI,Roboto,Arial,sans-serif;overflow-x:hidden;
+    }
+    a{color:var(--accent);text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    header{
+      position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(10,14,25,0.9), rgba(10,14,25,0.65));
+      backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--border)
+    }
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:0.5px}
+    .logo{
+      width:36px;height:36px;border-radius:10px;background:
+        conic-gradient(from 160deg, var(--accent) 0 20%, transparent 20 35%, var(--accent2) 35 55%, transparent 55 75%, var(--accent) 75 100%),
+        linear-gradient(135deg, #0a0f1f, #0f1833);
+      box-shadow:0 8px 24px rgba(56,189,248,0.35), inset 0 0 0 1px var(--border)
+    }
+    .nav a{margin:0 12px;color:var(--text)}
+    .cta{
+      padding:10px 16px;border:1px solid var(--border);border-radius:10px;background:var(--glass);
+      transition:all .2s ease;color:var(--text)
+    }
+    .cta:hover{border-color:var(--accent);box-shadow:0 8px 18px rgba(56,189,248,0.35)}
+    /* Hero */
+    .hero{position:relative;padding:80px 0 40px}
+    .grid{
+      display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center
+    }
+    .h-title{font-size:clamp(28px, 4vw, 44px);font-weight:800;line-height:1.05;margin:0 0 10px}
+    .h-sub{color:var(--muted);font-size:clamp(14px, 2.1vw, 18px);margin-bottom:20px}
+    .h-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      all:unset;display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:12px;cursor:pointer;
+      background:linear-gradient(135deg, var(--accent) 0%, var(--accent2) 100%);color:#051019;font-weight:700;box-shadow:var(--shadow)
+    }
+    .btn.secondary{
+      background:var(--glass);color:var(--text);border:1px solid var(--border);font-weight:600
+    }
+    .badge{
+      display:inline-flex;gap:8px;align-items:center;background:var(--glass);border:1px solid var(--border);padding:8px 12px;border-radius:999px;color:var(--muted);font-size:13px
+    }
+    .hero-card{
+      background:linear-gradient(180deg, rgba(20,30,55,0.75), rgba(16,24,44,0.85));
+      border:1px solid var(--border);border-radius:18px;padding:18px;box-shadow:var(--shadow)
+    }
+    .specs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:10px}
+    .spec{background:var(--glass);border:1px solid var(--border);border-radius:12px;padding:12px}
+    .spec b{display:block;margin-bottom:6px}
+    /* Sections */
+    section{padding:40px 0;border-top:1px solid var(--border)}
+    h2{margin:0 0 16px;font-size:26px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;transition:transform .2s ease, border .2s ease}
+    .card:hover{transform:translateY(-4px);border-color:var(--accent)}
+    .card h3{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .feature{background:var(--glass);border:1px solid var(--border);border-radius:14px;padding:14px}
+    .feature b{display:block;margin-bottom:6px}
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .tile{
+      background:linear-gradient(180deg, #111a33, #0e152b);border:1px solid var(--border);border-radius:12px;height:120px;position:relative;overflow:hidden
+    }
+    .tile::after{
+      content:"";position:absolute;inset:0;background:
+        radial-gradient(120px 60px at 30% 60%, rgba(56,189,248,0.18), transparent 60%),
+        radial-gradient(120px 60px at 70% 30%, rgba(139,92,246,0.18), transparent 60%);
+      mix-blend:screen
+    }
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .price{
+      background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px
+    }
+    .price .amount{font-size:22px;font-weight:800}
+    .price ul{margin:0;padding-left:18px;color:var(--muted)}
+    /* Contact */
+    .contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:16px}
+    form{
+      background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px
+    }
+    label{display:block;margin:8px 0 6px;color:var(--muted)}
+    input, textarea, select{
+      width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0a1226;color:var(--text)
+    }
+    textarea{min-height:120px;resize:vertical}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .status{margin-top:10px;font-size:14px}
+    /* WhatsApp floating button */
+    .wa{
+      position:fixed;right:18px;bottom:18px;background:#1fa855;color:#04110b;border-radius:999px;padding:12px 16px;
+      display:flex;align-items:center;gap:8px;box-shadow:0 16px 40px rgba(31,168,85,0.35);font-weight:800;z-index:60;cursor:pointer
+    }
+    .wa:hover{transform:translateY(-2px)}
+    /* Footer */
+    footer{padding:30px 0;color:var(--muted);text-align:center;border-top:1px solid var(--border)}
+    /* Responsive */
+    @media (max-width:900px){
+      .grid,.cards,.features,.gallery,.pricing,.contact-grid{grid-template-columns:1fr}
+      .hero{padding:60px 0 30px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div style="font-size:16px; font-weight:800;">C420 3D Printing Service's</div>
+          <div style="font-size:12px;color:var(--muted)">Rapid prototyping • Custom parts • Small-batch</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact" class="cta">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container grid">
+        <div>
+          <div class="badge">✨ <span>Industrial-grade accuracy • Fast turnaround</span></div>
+          <h1 class="h-title">Bring your ideas to life with precision 3D printing.</h1>
+          <p class="h-sub">FDM, SLA, and SLS printing tailored to engineering prototypes, custom enclosures, functional jigs, and aesthetic models. Instant advice, material guidance, and WhatsApp support.</p>
+          <div class="h-actions">
+            <button class="btn" id="startQuote">Get instant quote</button>
+            <a class="btn secondary" href="#contact">Talk to an expert</a>
+          </div>
+        </div>
+        <div class="hero-card" aria-label="Capabilities overview">
+          <div class="specs">
+            <div class="spec">
+              <b>Layer height</b>
+              <span>0.08–0.28 mm (FDM) • 0.03–0.10 mm (SLA)</span>
+            </div>
+            <div class="spec">
+              <b>Build volume</b>
+              <span>Up to 300×300×300 mm (FDM) • 120×68×155 mm (SLA)</span>
+            </div>
+            <div class="spec">
+              <b>Materials</b>
+              <span>PLA, PETG, ABS, ASA, Nylon, TPU</span>
+            </div>
+            <div class="spec">
+              <b>Finishing</b>
+              <span>Vapor smooth, sand, prime/paint, dye, inserts</span>
+            </div>
+          </div>
+          <p style="color:var(--muted);margin-top:12px">Upload your STL/STEP for a tailored quote, or describe your part and we’ll help refine it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>Rapid prototyping</h3>
+            <p>Iterate fast on functional prototypes with material and process guidance to hit mechanical targets.</p>
+          </div>
+          <div class="card">
+            <h3>Custom enclosures</h3>
+            <p>Electronics-ready housings with snap-fits, heat-set inserts, and cable relief designed for assembly.</p>
+          </div>
+          <div class="card">
+            <h3>Small-batch parts</h3>
+            <p>Batch runs for fixtures, jigs, and end-use parts with consistent tolerances and QA checks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="container">
+        <h2>Capabilities</h2>
+        <div class="features">
+          <div class="feature"><b>FDM</b><span>Strong, cost-effective parts in PLA, PETG, ABS, ASA, Nylon, TPU.</span></div>
+          <div class="feature"><b>SLA</b><span>High-detail resin prints for smooth surfaces and fine features.</span></div>
+          <div class="feature"><b>SLS</b><span>Durable Nylon parts with complex geometries and no supports.</span></div>
+          <div class="feature"><b>Finishing</b><span>Vapor smoothing, sanding, priming, painting, dyeing, and inserts.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <h2>Gallery</h2>
+        <div class="gallery">
+          <div class="tile" title="Functional bracket"><img src="bench.jpeg" height="200px" width="auto"></div>
+          <div class="tile" title="Electronics enclosure"><img src="WhatsApp Image 2025-12-10 at 12.03.09 PM.jpeg" alt="" srcset="" height="200" width="250"></div>
+          <div class="tile" title="Scale model"><img src="nameplate.png" alt="" height="115"></div>
+          <div class="tile" title="Gear prototype"><img src="WhatsApp Image 2025-12-10 at 12.03.07 PM.jpeg" alt="" srcset="" width="300" height="150"></div>
+        </div>
+        <p style="color:var(--muted);margin-top:10px">Want your model here? Send us photos of your printed part and we’ll feature it.</p>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <h2>Pricing</h2>
+        <div class="pricing">
+          <div class="price">
+            <div><b>Starter</b></div>
+            <div class="amount">Starting ₹299</div>
+            <ul>
+              <li>PLA/PETG, basic finish</li>
+              <li>Layer 0.2–0.28 mm</li>
+              <li>Volume ≤ 120×120×120 mm</li>
+            </ul>
+            <button class="btn secondary openQuote">Request</button>
+          </div>
+          <div class="price">
+            <div><b>Pro</b></div>
+            <div class="amount">Starting ₹1,499</div>
+            <ul>
+              <li>ABS/ASA/Nylon/TPU</li>
+              <li>Layer 0.12–0.2 mm</li>
+              <li>Volume ≤ 220×220×220 mm</li>
+            </ul>
+            <button class="btn secondary openQuote">Request</button>
+          </div>
+          <div class="price">
+            <div><b>Precision (SLA/SLS)</b></div>
+            <div class="amount">Starting ₹2,999</div>
+            <ul>
+              <li>Resin or SLS Nylon</li>
+              <li>Layer 0.03–0.1 mm</li>
+              <li>Fine features + finishing</li>
+            </ul>
+            <button class="btn secondary openQuote">Request</button>
+          </div>
+        </div>
+        <p style="color:var(--muted);margin-top:10px">Final pricing depends on material, volume, layer height, infill, supports, and finishing.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact</h2>
+        <div class="contact-grid">
+          <form id="contactForm">
+            <div class="form-row">
+              <div>
+                <label for="name">Your name</label>
+                <input id="name" name="name" type="text" placeholder="Full name" required />
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="chaudharyjangbahaduron@gmail.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" placeholder="+919369198105" />
+              </div>
+              <div>
+                <label for="service">Service</label>
+                <select id="service" name="service" required>
+                  <option value="">Choose a service</option>
+                  <option>Rapid prototyping</option>
+                  <option>Custom enclosures</option>
+                  <option>Small-batch parts</option>
+                  <option>Precision SLA/SLS</option>
+                </select>
+              </div>
+            </div>
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" placeholder="Describe the part, material, size, quantity, and deadline..." required></textarea>
+
+            <div class="form-row">
+              <div>
+                <label for="file">Attach file (STL/STEP)</label>
+                <input id="file" name="file" type="file" accept=".stl,.step,.stp,.obj,.zip" />
+              </div>
+              <div style="display:flex;align-items:flex-end">
+                <button class="btn" type="submit" style="width:100%">Send request</button>
+              </div>
+            </div>
+
+            <div class="status" id="status"></div>
+            <p style="color:var(--muted)">Prefer chat? Use the WhatsApp button below for quick replies.</p>
+          </form>
+
+          <div>
+            <div class="card">
+              <h3>Direct contacts</h3>
+              <p><b>Email:</b> <a href="mailto:chaudharyjangbahaduron@gmail.com">chaudharyjangbahaduron@gmail.com</a></p>
+              <p><b>Phone:</b> <a href="tel:+919369198105">+91 9369198105</a></p>
+              <p><b>WhatsApp:</b> <a id="waLink" href="https://wa.me/919369198105?text=Hi%20C420%2C%20I%27d%20like%20a%203D%20printing%20quote." target="_blank" rel="noopener">Chat now</a></p>
+              <hr style="border-color:var(--border)">
+              <p style="color:var(--muted)">Business hours: Mon–Sat, 10:00–19:00 IST</p>
+              <p style="color:var(--muted)">Location: New Delhi • Ghaziabad • Pan-India shipping</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="wa" id="waFloat" href="https://wa.me/919369198105?text=Hi%20C420%2C%20I%27d%20like%20a%203D%20printing%20quote." target="_blank" rel="noopener" aria-label="WhatsApp chat">
+    <span>WhatsApp</span> 💬
+  </a>
+
+  <footer>
+    <div class="container">
+      <div style="margin-bottom:8px">© <span id="year"></span> C420 3D Printing Service's. All rights reserved.</div>
+      <div>Made with precision, shipped with care.</div>
+    </div>
+  </footer>
+
+  <script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Open contact/quote from hero and pricing
+    const openQuoteButtons = document.querySelectorAll('.openQuote, #startQuote');
+    openQuoteButtons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const contact = document.getElementById('contact');
+        contact.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    // WhatsApp message prefill with form data
+    function buildWAUrl(){
+      const name = encodeURIComponent(document.getElementById('name').value || '');
+      const phone = encodeURIComponent(document.getElementById('phone').value || '');
+      const service = encodeURIComponent(document.getElementById('service').value || '');
+      const message = encodeURIComponent(document.getElementById('message').value || '');
+      const base = 'https://wa.me/919369198105?text=';
+      const text = `Hi C420, I'm ${name} (${phone}). Service: ${service}. Details: ${message}`;
+      return base + encodeURIComponent(text);
+    }
+
+    // Update WhatsApp links live
+    ['name','phone','service','message'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el){
+        el.addEventListener('input', ()=>{
+          const url = buildWAUrl();
+          document.getElementById('waLink').setAttribute('href', url);
+          document.getElementById('waFloat').setAttribute('href', url);
+        });
+      }
+    });
+
+    // Client-side form handler (send via mailto as fallback)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      status.textContent = 'Preparing your request...';
+
+      const data = new FormData(form);
+      const body = `
+Name: ${data.get('name')}
+Email: ${data.get('email')}
+Phone: ${data.get('phone')}
+Service: ${data.get('service')}
+Message: ${data.get('message')}
+      `.trim();
+
+      // Basic validation
+      if(!data.get('name') || !data.get('email') || !data.get('service') || !data.get('message')){
+        status.style.color = 'var(--warn)';
+        status.textContent = 'Please fill all required fields.';
+        return;
+      }
+
+      // Fallback mailto (replace with your backend endpoint when ready)
+      const mailto = `mailto:chaudharyjangbahaduron@gmail.com?subject=${encodeURIComponent('New quote request')}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+
+      status.style.color = 'var(--success)';
+      status.textContent = 'Opening your email app. If it doesn’t open, use the WhatsApp button or the direct email link.';
+    });
+  </script>
+</body>
+</html>
