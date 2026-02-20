@@ -37,8 +37,56 @@
     }
     a{color:var(--accent);text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    
+    /* Top phone bar */
+    .phone-bar{
+      background:linear-gradient(90deg, #1fa855 0%, #0d7e3a 100%);
+      padding:12px 0;
+      border-bottom:2px solid #0d5c2e;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:24px;
+      flex-wrap:wrap;
+    }
+    .phone-text{
+      font-size:32px;
+      font-weight:800;
+      color:#ffffff;
+      letter-spacing:1px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .phone-icon{
+      font-size:28px;
+    }
+    .wa-chat-btn{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background:#ffffff;
+      color:#1fa855;
+      padding:10px 20px;
+      border-radius:50px;
+      font-weight:800;
+      text-decoration:none;
+      font-size:18px;
+      transition:all 0.3s ease;
+      box-shadow:0 4px 15px rgba(31,168,85,0.4);
+    }
+    .wa-chat-btn:hover{
+      transform:translateY(-3px);
+      box-shadow:0 6px 20px rgba(31,168,85,0.6);
+    }
+    .wa-logo{
+      font-size:36px;
+      display:flex;
+      align-items:center;
+    }
+    
     header{
-      position:sticky;top:0;z-index:50;background:linear-gradient(180deg, rgba(10,14,25,0.9), rgba(10,14,25,0.65));
+      position:sticky;top:68px;z-index:50;background:linear-gradient(180deg, rgba(10,14,25,0.9), rgba(10,14,25,0.65));
       backdrop-filter:saturate(1.2) blur(8px);border-bottom:1px solid var(--border)
     }
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
@@ -132,10 +180,27 @@
     @media (max-width:900px){
       .grid,.cards,.features,.gallery,.pricing,.contact-grid{grid-template-columns:1fr}
       .hero{padding:60px 0 30px}
+      .phone-bar{gap:16px;}
+      .phone-text{font-size:24px;}
+      .wa-chat-btn{font-size:16px;padding:8px 16px;}
+      .wa-logo{font-size:28px;}
+      header{top:80px}
     }
   </style>
 </head>
 <body>
+  <!-- Phone & WhatsApp Top Bar -->
+  <div class="phone-bar">
+    <div class="phone-text">
+      <span class="phone-icon">📞</span>
+      9369198105
+    </div>
+    <a class="wa-chat-btn" href="https://wa.me/919369198105?text=Hi%20C420%2C%20I%27d%20like%20a%203D%20printing%20quote." target="_blank" rel="noopener">
+      <span class="wa-logo">💬</span>
+      Chat on WhatsApp
+    </a>
+  </div>
+
   <header>
     <div class="container nav">
       <div class="brand">
@@ -186,7 +251,7 @@
               <span>Vapor smooth, sand, prime/paint, dye, inserts</span>
             </div>
           </div>
-          <p style="color:var(--muted);margin-top:12px">Upload your STL/STEP for a tailored quote, or describe your part and we’ll help refine it.</p>
+          <p style="color:var(--muted);margin-top:12px">Upload your STL/STEP for a tailored quote, or describe your part and we'll help refine it.</p>
         </div>
       </div>
     </section>
@@ -232,7 +297,7 @@
           <div class="tile" title="Scale model"><img src="nameplate.png" alt="" height="115"></div>
           <div class="tile" title="Gear prototype"><img src="WhatsApp Image 2025-12-10 at 12.03.07 PM.jpeg" alt="" srcset="" width="300" height="150"></div>
         </div>
-        <p style="color:var(--muted);margin-top:10px">Want your model here? Send us photos of your printed part and we’ll feature it.</p>
+        <p style="color:var(--muted);margin-top:10px">Want your model here? Send us photos of your printed part and we'll feature it.</p>
       </div>
     </section>
 
@@ -425,7 +490,7 @@ Message: ${data.get('message')}
       window.location.href = mailto;
 
       status.style.color = 'var(--success)';
-      status.textContent = 'Opening your email app. If it doesn’t open, use the WhatsApp button or the direct email link.';
+      status.textContent = 'Opening your email app. If it doesn't open, use the WhatsApp button or the direct email link.';
     });
   </script>
 </body>
