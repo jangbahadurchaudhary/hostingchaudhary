@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>C420 3D Printing | Next-Gen Prototyping</title>
+  <meta name="description" content="C420 3D Printing Service's offers rapid prototyping, custom parts, and small-batch manufacturing with FDM, SLA, and SLS." />
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" href="https://chaudharywebhosting.online/favicon.ico" />
+
+  <style>
+    :root {
+      --bg-base: #020617;
+      --bg-panel: rgba(15, 23, 42, 0.6);
+      --neon-cyan: #00f3ff;
+      --neon-purple: #b026ff;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border-glow: rgba(0, 243, 255, 0.3);
+      
+      /* WhatsApp Official Colors */
+      --wa-green: #25D366;
+      --wa-dark: #128C7E;
+      --wa-teal: #075E54;
+      
+      --warn: #f59e0b;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; scroll-behavior: smooth; }
+    
+    body {
+      margin: 0;
+      background-color: var(--bg-base);
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(176, 38, 255, 0.08), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(0, 243, 255, 0.08), transparent 25%),
+        linear-gradient(180deg, #020617 0%, #0a0f24 100%);
+      color: var(--text-main);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      overflow-x: hidden;
+    }
+
+    /* Scroll Animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h1, h2, h3, .brand-text {
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    a { color: var(--neon-cyan); text-decoration: none; transition: var(--transition); }
+    a:hover { text-shadow: 0 0 8px var(--neon-cyan); }
+    
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    
+    /* =========================================
+       NEW BIG WHATSAPP TOP BAR
+       ========================================= */
+    .phone-bar {
+      background: #ffffff; /* Pure White Background */
+      border-bottom: 4px solid var(--wa-green);
+      padding: 15px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      position: relative;
+      z-index: 60;
+    }
+    .phone-text {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 26px; /* Bigger Phone Number */
+      font-weight: 900;
+      color: var(--wa-teal); /* Dark WhatsApp Green for contrast */
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .phone-text i {
+      color: var(--wa-green);
+    }
+    .wa-chat-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--wa-green);
+      color: #ffffff;
+      padding: 12px 32px; /* Much larger clickable area */
+      border-radius: 50px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 900;
+      font-size: 20px; /* Big Text */
+      text-transform: uppercase;
+      box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+    }
+    .wa-chat-btn i { font-size: 28px; } /* Big Icon */
+    
+    .wa-chat-btn:hover {
+      background: var(--wa-dark);
+      color: #ffffff;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(18, 140, 126, 0.5);
+      text-shadow: none;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(2, 6, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-glow);
+      box-shadow: 0 4px 30px rgba(0, 243, 255, 0.1);
+    }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+    .brand { display: flex; align-items: center; gap: 15px; }
+    
+    .logo {
+      width: 45px; height: 45px;
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 20px rgba(0,243,255,0.4);
+      transition: transform 0.5s ease;
+    }
+    .logo:hover { transform: rotate(180deg); }
+    .logo::after {
+      content: ''; width: 35px; height: 35px;
+      background: var(--bg-base);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+    .brand-title { font-size: 20px; font-weight: 900; color: #fff; text-shadow: 0 0 5px var(--neon-cyan); }
+    .brand-sub { font-size: 14px; color: var(--text-muted); font-family: 'Rajdhani', sans-serif; letter-spacing: 2px; }
+    
+    nav a { margin: 0 15px; font-weight: 600; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; }
+    
+    /* Buttons */
+    .btn {
+      all: unset; cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 28px; font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 14px;
+      text-transform: uppercase; letter-spacing: 1.5px;
+      background: transparent; color: var(--neon-cyan);
+      border: 1px solid var(--neon-cyan);
+      position: relative; overflow: hidden; transition: var(--transition);
+      box-shadow: 0 0 10px rgba(0,243,255,0.2) inset;
+    }
+    .btn::before {
+      content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0,243,255,0.4), transparent);
+      transition: var(--transition);
+    }
+    .btn:hover::before { left: 100%; }
+    .btn:hover { background: var(--neon-cyan); color: #000; box-shadow: 0 0 20px var(--neon-cyan); }
+    
+    .btn.secondary { border-color: var(--neon-purple); color: var(--neon-purple); box-shadow: 0 0 10px rgba(176,38,255,0.2) inset; }
+    .btn.secondary:hover { background: var(--neon-purple); color: #fff; box-shadow: 0 0 20px var(--neon-purple); }
+
+    /* Hero Section */
+    .hero { padding: 100px 0 60px; position: relative; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+    
+    .badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(0, 243, 255, 0.1); border: 1px solid var(--neon-cyan);
+      padding: 6px 16px; border-radius: 20px; color: var(--neon-cyan);
+      font-family: 'Orbitron', sans-serif; font-size: 12px; margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(0,243,255,0.2);
+    }
+    
+    .h-title { 
+      font-size: clamp(32px, 5vw, 55px); line-height: 1.1; margin: 0 0 20px;
+      background: linear-gradient(to right, #fff, var(--neon-cyan));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .h-sub { color: var(--text-muted); font-size: clamp(16px, 2vw, 20px); margin-bottom: 30px; line-height: 1.6; }
+    .h-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+    
+    /* Cyber Data Card */
+    .cyber-card {
+      background: var(--bg-panel); backdrop-filter: blur(10px);
+      border: 1px solid var(--border-glow);
+      padding: 30px; position: relative;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(0,243,255,0.1) inset;
+    }
+    .cyber-card::before, .cyber-card::after {
+      content: ''; position: absolute; width: 15px; height: 15px; border: 2px solid var(--neon-cyan);
+    }
+    .cyber-card::before { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+    .cyber-card::after { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+    .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+    .spec { 
+      background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); 
+      padding: 15px; transition: var(--transition);
+    }
+    .spec:hover { border-color: var(--neon-cyan); background: rgba(0,243,255,0.05); transform: scale(1.02); }
+    .spec b { display: block; color: var(--neon-cyan); font-family: 'Orbitron', sans-serif; font-size: 14px; margin-bottom: 5px; }
+    
+    /* Sections */
+    section { padding: 80px 0; border-top: 1px solid rgba(255,255,255,0.05); position: relative; }
+    h2 { font-size: 36px; margin: 0 0 40px; text-align: center; color: #fff; text-shadow: 0 0 10px rgba(255,255,255,0.3); }
+    h2::after {
+      content: ''; display: block; width: 60px; height: 3px; background: var(--neon-purple);
+      margin: 10px auto 0; box-shadow: 0 0 10px var(--neon-purple);
+    }
+    
+    .cards, .pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+    
+    .card {
+      background: var(--bg-panel); border: 1px solid rgba(255,255,255,0.1);
+      padding: 30px; transition: var(--transition); position: relative;
+    }
+    .card:hover { 
+      transform: translateY(-10px); border-color: var(--neon-purple); 
+      box-shadow: 0 10px 30px rgba(176,38,255,0.15);
+    }
+    .card h3 { font-size: 22px; color: var(--neon-purple); margin-top: 0; }
+    
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .feature { 
+      background: rgba(0,0,0,0.5); border-left: 3px solid var(--neon-cyan); 
+      padding: 20px; font-size: 16px; transition: var(--transition);
+    }
+    .feature:hover { background: rgba(0,243,255,0.05); padding-left: 25px; }
+    .feature b { font-family: 'Orbitron', sans-serif; color: #fff; font-size: 18px; display: block; margin-bottom: 8px; }
+
+    /* Expanded Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+    .tile {
+      background: #000; height: 200px; position: relative; overflow: hidden;
+      border: 1px solid var(--border-glow); display: flex; align-items: center; justify-content: center;
+    }
+    .tile img { width: 100%; height: 100%; object-fit: cover; opacity: 0.6; transition: var(--transition); filter: grayscale(30%) contrast(120%); }
+    .tile:hover img { opacity: 1; filter: grayscale(0%) contrast(100%); transform: scale(1.1); }
+    .tile::before {
+      content: ''; position: absolute; inset: 0; 
+      background: linear-gradient(0deg, rgba(0,243,255,0.2) 0%, transparent 100%); pointer-events: none; z-index: 1;
+    }
+
+    /* Pricing */
+    .price-card {
+      background: var(--bg-panel); border: 1px solid rgba(255,255,255,0.1); padding: 40px 30px;
+      display: flex; flex-direction: column; gap: 20px; position: relative;
+    }
+    .price-card:nth-child(2) { border-color: var(--neon-cyan); box-shadow: 0 0 20px rgba(0,243,255,0.1) inset; transform: scale(1.05); }
+    .price-card b { font-family: 'Orbitron', sans-serif; font-size: 20px; color: var(--text-muted); }
+    .price-card:nth-child(2) b { color: var(--neon-cyan); }
+    .amount { font-family: 'Orbitron', sans-serif; font-size: 36px; font-weight: 900; color: #fff; }
+    .price-card ul { margin: 0; padding-left: 20px; color: var(--text-muted); line-height: 1.8; flex-grow: 1; }
+    
+    /* Contact Form */
+    .contact-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; }
+    form { background: rgba(0,0,0,0.6); border: 1px solid var(--border-glow); padding: 30px; }
+    label { display: block; margin: 15px 0 8px; font-family: 'Orbitron', sans-serif; font-size: 14px; color: var(--neon-cyan); }
+    input, textarea, select {
+      width: 100%; padding: 15px; background: rgba(255,255,255,0.03); 
+      border: 1px solid rgba(255,255,255,0.1); color: #fff; font-family: 'Rajdhani', sans-serif; font-size: 16px;
+      transition: var(--transition);
+    }
+    input:focus, textarea:focus, select:focus { outline: none; border-color: var(--neon-cyan); background: rgba(0,243,255,0.05); box-shadow: 0 0 10px rgba(0,243,255,0.2); }
+    textarea { min-height: 150px; resize: vertical; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    
+    /* Floating WA */
+    .wa {
+      position: fixed; right: 30px; bottom: 30px; background: var(--wa-green); color: #fff;
+      border-radius: 50px; padding: 15px 25px; display: flex; align-items: center; gap: 10px;
+      font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 16px;
+      box-shadow: 0 0 20px rgba(37,211,102,0.4); z-index: 100; transition: var(--transition);
+    }
+    .wa i { font-size: 24px; }
+    .wa:hover { background: var(--wa-dark); transform: scale(1.1) translateY(-5px); box-shadow: 0 10px 30px rgba(18,140,126,0.6); color: #fff; text-shadow: none; }
+
+    /* Footer */
+    footer { padding: 40px 0 0; background: #000; border-top: 1px solid var(--border-glow); text-align: center; }
+    .map-container { width: 100%; height: 300px; margin-top: 40px; filter: invert(90%) hue-rotate(180deg); opacity: 0.8; }
+    
+    @media (max-width: 900px) {
+      .grid, .contact-grid, .form-row { grid-template-columns: 1fr; }
+      .nav { flex-direction: column; height: auto; padding: 15px 0; gap: 15px; }
+      nav a { margin: 5px 10px; display: inline-block; }
+      .hero { padding: 60px 0; }
+      .price-card:nth-child(2) { transform: scale(1); }
+      .phone-bar { flex-direction: column; gap: 15px; padding: 20px; }
+      .wa-chat-btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="phone-bar">
+    <div class="phone-text">
+      <i class="fas fa-phone-alt"></i> 9369198105
+    </div>
+    <a class="wa-chat-btn" href="https://wa.me/919369198105?text=Hi%20C420%2C%20I%27d%20like%20a%203D%20printing%20quote." target="_blank" rel="noopener">
+      <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+    </a>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-title">C420 3D PRINTING</div>
+          <div class="brand-sub">SYS.PROTOCOL // RAPID.PROTO</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#capabilities">Specs</a>
+        <a href="#gallery">Databases</a>
+        <a href="#pricing">Credits</a>
+        <a href="#contact" class="btn" style="padding: 8px 16px; font-size: 12px;">Uplink</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container grid">
+        <div class="animate-on-scroll">
+          <div class="badge">SYS_ONLINE // INDUSTRIAL ACCURACY</div>
+          <h1 class="h-title">MATERIALIZE YOUR CONCEPTS.</h1>
+          <p class="h-sub">Next-generation FDM, SLA, and SLS manufacturing tailored for engineering prototypes, cybernetic enclosures, and functional robotics. Instant telemetry and encrypted WhatsApp support.</p>
+          <div class="h-actions">
+            <button class="btn" id="startQuote">Initialize Quote</button>
+            <a class="btn secondary" href="#contact">Contact Operator</a>
+          </div>
+        </div>
+        <div class="cyber-card animate-on-scroll" aria-label="Capabilities overview">
+          <h3 style="margin-top:0; color:var(--neon-cyan); font-family:'Orbitron', sans-serif;">SYS_SPECS</h3>
+          <div class="specs">
+            <div class="spec">
+              <b>Z-AXIS RESOLUTION</b>
+              <span>0.08–0.28 mm (FDM)<br>0.03–0.10 mm (SLA)</span>
+            </div>
+            <div class="spec">
+              <b>BUILD CHAMBER</b>
+              <span>300³ mm (FDM)<br>120x68x155 mm (SLA)</span>
+            </div>
+            <div class="spec">
+              <b>POLYMERS</b>
+              <span>PLA, PETG, ABS, ASA, Nylon, TPU</span>
+            </div>
+            <div class="spec">
+              <b>POST-PROCESSING</b>
+              <span>Vapor smooth, kinetic sand, hyper-dye, inserts</span>
+            </div>
+          </div>
+          <p style="color:var(--text-muted); margin-top:20px; font-size: 14px; text-transform:uppercase;">[ Upload STL/STEP parameters for algorithmic pricing ]</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container animate-on-scroll">
+        <h2>CORE SERVICES</h2>
+        <div class="cards">
+          <div class="card">
+            <h3>RAPID PROTOTYPING</h3>
+            <p>Iterate at terminal velocity on functional prototypes. We provide algorithmic material and process guidance to hit exact mechanical tolerances.</p>
+          </div>
+          <div class="card">
+            <h3>CUSTOM ENCLOSURES</h3>
+            <p>Electronics-ready armor housings engineered with snap-fits, heat-set brass inserts, and tactical cable relief designed for seamless assembly.</p>
+          </div>
+          <div class="card">
+            <h3>MICRO-BATCH MFG</h3>
+            <p>Precision batch rendering for automated fixtures, jigs, and end-use hardware with strict geometric QA validation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="capabilities">
+      <div class="container animate-on-scroll">
+        <h2>HARDWARE CAPABILITIES</h2>
+        <div class="features">
+          <div class="feature"><b>FDM MATRICES</b><span>High-tensile, cost-efficient geometry in PLA, PETG, ABS, ASA, Nylon, TPU.</span></div>
+          <div class="feature"><b>SLA RESIN</b><span>Sub-millimeter detail rendering for glass-smooth topography and micro-features.</span></div>
+          <div class="feature"><b>SLS FUSION</b><span>Impact-resistant Nylon constructs with complex internal voids. Zero support structures required.</span></div>
+          <div class="feature"><b>SURFACE FINISH</b><span>Chemical vapor smoothing, mechanical sanding, priming, nano-painting, and hardware inserts.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container animate-on-scroll">
+        <h2>VISUAL DATABANKS</h2>
+        <div class="gallery">
+          <div class="tile" title="Functional bracket"><img src="bench.jpeg" alt="Functional bracket"></div>
+          <div class="tile" title="Electronics enclosure"><img src="WhatsApp Image 2025-12-10 at 12.03.09 PM.jpeg" alt="Electronics enclosure"></div>
+          <div class="tile" title="Scale model"><img src="nameplate.png" alt="Scale model"></div>
+          <div class="tile" title="Gear prototype"><img src="WhatsApp Image 2025-12-10 at 12.03.07 PM.jpeg" alt="Gear prototype"></div>
+          
+          <div class="tile" title="Mechanical 3D Printed Gears"><img src="https://images.unsplash.com/photo-1563456382173-000c02bc563a?q=80&w=600" alt="Mechanical 3D printed gears"></div>
+          <div class="tile" title="Resin Printed Miniatures"><img src="https://images.unsplash.com/photo-1615555460592-5eb384c55209?q=80&w=600" alt="Resin printed miniature"></div>
+          <div class="tile" title="Extruder in Action"><img src="https://images.unsplash.com/photo-1631541909061-71e34ddf57a1?q=80&w=600" alt="3D printer extruder printing"></div>
+          <div class="tile" title="Complex Geometries"><img src="https://images.unsplash.com/photo-1562095241-8c6714fd4178?q=80&w=600" alt="Complex 3D printed geometry"></div>
+        </div>
+        <p style="color:var(--text-muted); margin-top:20px; text-align:center; font-family:'Orbitron', sans-serif;">TRANSMIT YOUR SCHEMATICS TO BE FEATURED IN THE ARCHIVE.</p>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container animate-on-scroll">
+        <h2>EXCHANGE RATES</h2>
+        <div class="pricing">
+          <div class="price-card">
+            <b>PROTO_TIER</b>
+            <div class="amount">₹299<span style="font-size:16px; color:var(--text-muted)">/base</span></div>
+            <ul>
+              <li>PLA/PETG Polymers</li>
+              <li>Standard Surface Finish</li>
+              <li>Z-Layer: 0.2–0.28 mm</li>
+              <li>Vol Limit: 120³ mm</li>
+            </ul>
+            <button class="btn secondary openQuote">REQUEST ALLOCATION</button>
+          </div>
+          <div class="price-card">
+            <b>ENGINEER_TIER</b>
+            <div class="amount">₹1,499<span style="font-size:16px; color:var(--text-muted)">/base</span></div>
+            <ul>
+              <li>ABS / ASA / Nylon / TPU</li>
+              <li>Structural Infill Optimization</li>
+              <li>Z-Layer: 0.12–0.2 mm</li>
+              <li>Vol Limit: 220³ mm</li>
+            </ul>
+            <button class="btn openQuote">REQUEST ALLOCATION</button>
+          </div>
+          <div class="price-card">
+            <b>PRECISION_TIER</b>
+            <div class="amount">₹2,999<span style="font-size:16px; color:var(--text-muted)">/base</span></div>
+            <ul>
+              <li>SLA Resin / SLS Nylon</li>
+              <li>Micron-level Feature Detailing</li>
+              <li>Z-Layer: 0.03–0.1 mm</li>
+              <li>Advanced Post-Processing</li>
+            </ul>
+            <button class="btn secondary openQuote">REQUEST ALLOCATION</button>
+          </div>
+        </div>
+        <p style="color:var(--text-muted); margin-top:20px; text-align:center;">Final credit exchange depends on polymer density, spatial volume, infill algorithms, and processing time.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container animate-on-scroll">
+        <h2>ESTABLISH UPLINK</h2>
+        <div class="contact-grid">
+          <form id="contactForm">
+            <div class="form-row">
+              <div>
+                <label for="name">OPERATIVE DESIGNATION (NAME)</label>
+                <input id="name" name="name" type="text" placeholder="Enter full name" required />
+              </div>
+              <div>
+                <label for="email">COMMS SIGNAL (EMAIL)</label>
+                <input id="email" name="email" type="email" placeholder="chaudharyjangbahaduron@gmail.com" required />
+              </div>
+            </div>
+            <div class="form-row">
+              <div>
+                <label for="phone">SECURE LINE (PHONE)</label>
+                <input id="phone" name="phone" type="tel" placeholder="+919369198105" />
+              </div>
+              <div>
+                <label for="service">REQUIRED PROTOCOL</label>
+                <select id="service" name="service" required>
+                  <option value="">Select a protocol</option>
+                  <option>Rapid Prototyping</option>
+                  <option>Custom Enclosures</option>
+                  <option>Micro-Batch Hardware</option>
+                  <option>Precision SLA/SLS</option>
+                </select>
+              </div>
+            </div>
+            <label for="message">SCHEMATIC PARAMETERS</label>
+            <textarea id="message" name="message" placeholder="Input part dimensions, polymer requirements, stress factors, and deadline coordinates..." required></textarea>
+
+            <div class="form-row" style="margin-top: 20px;">
+              <div>
+                <label for="file">UPLOAD CAD DATA (STL/STEP)</label>
+                <input id="file" name="file" type="file" accept=".stl,.step,.stp,.obj,.zip" style="padding: 11px;" />
+              </div>
+              <div style="display:flex; align-items:flex-end">
+                <button class="btn" type="submit" style="width:100%">TRANSMIT DATA</button>
+              </div>
+            </div>
+
+            <div id="status" style="margin-top:15px; font-family:'Orbitron', sans-serif; font-size:14px;"></div>
+          </form>
+
+          <div>
+            <div class="cyber-card">
+              <h3 style="margin-top:0; color:var(--neon-purple); font-family:'Orbitron', sans-serif;">DIRECT CHANNELS</h3>
+              <p><b>EMAIL:</b> <br><a href="mailto:chaudharyjangbahaduron@gmail.com" style="color:#fff">chaudharyjangbahaduron@gmail.com</a></p>
+              <p><b>FREQ:</b> <br><a href="tel:+919369198105" style="color:#fff">+91 9369198105</a></p>
+              <p><b>WHATSAPP_LINK:</b> <br><a id="waLink" href="https://wa.me/919369198105?text=Hi%20C420%2C%20I%27d%20like%20a%203D%20printing%20quote." target="_blank" rel="noopener"><i class="fab fa-whatsapp" style="color:var(--wa-green)"></i> Initialize Chat</a></p>
+              <hr style="border-color:rgba(255,255,255,0.1); margin: 20px 0;">
+              <p style="color:var(--text-muted); font-size: 14px;">SYS_TIME: Mon–Sat, 10:00–19:00 IST</p>
+              <p style="color:var(--text-muted); font-size: 14px;">GEO_LOC: New Delhi • Ghaziabad • Pan-India Logistics</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <a class="wa" id="waFloat" href="https://wa.me/919369198105?text=Hi%20C420%2C%20I%27d%20like%20a%203D%20printing%20quote." target="_blank" rel="noopener" aria-label="WhatsApp chat">
+    <i class="fab fa-whatsapp"></i> UPLINK
+  </a>
+
+  <footer>
+    <div class="container">
+      <div style="margin-bottom:8px; font-family:'Orbitron', sans-serif;">© <span id="year"></span> C420 3D PRINTING. ALL SYSTEMS NOMINAL.</div>
+      <div style="color:var(--text-muted); font-size:14px;">Engineered with precision. Deployed with velocity.</div>
+    </div>
+    <div class="map-container">
+      <iframe src="https://maps.google.com/maps?q=New%20Delhi&t=m&z=10&output=embed&iwloc=near" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </footer>
+
+  <script>
+    // Intersection Observer for Scroll Animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.15
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.animate-on-scroll').forEach((el) => {
+      observer.observe(el);
+    });
+
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const target = document.querySelector(a.getAttribute('href'));
+        if(target){
+          e.preventDefault();
+          target.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // Open contact/quote from hero and pricing
+    const openQuoteButtons = document.querySelectorAll('.openQuote, #startQuote');
+    openQuoteButtons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const contact = document.getElementById('contact');
+        contact.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    // WhatsApp message prefill with form data
+    function buildWAUrl(){
+      const name = encodeURIComponent(document.getElementById('name').value || '');
+      const phone = encodeURIComponent(document.getElementById('phone').value || '');
+      const service = encodeURIComponent(document.getElementById('service').value || '');
+      const message = encodeURIComponent(document.getElementById('message').value || '');
+      const base = 'https://wa.me/919369198105?text=';
+      const text = `SYS.MSG: Hi C420, Operative ${name} (${phone}) requesting protocol: ${service}. Data: ${message}`;
+      return base + encodeURIComponent(text);
+    }
+
+    // Update WhatsApp links live
+    ['name','phone','service','message'].forEach(id=>{
+      const el = document.getElementById(id);
+      if(el){
+        el.addEventListener('input', ()=>{
+          const url = buildWAUrl();
+          document.getElementById('waLink').setAttribute('href', url);
+          document.getElementById('waFloat').setAttribute('href', url);
+        });
+      }
+    });
+
+    // Client-side form handler
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      status.style.color = 'var(--neon-cyan)';
+      status.textContent = '> COMPILING TRANSMISSION...';
+
+      const data = new FormData(form);
+      const body = `
+OPERATIVE: ${data.get('name')}
+SIGNAL: ${data.get('email')}
+LINE: ${data.get('phone')}
+PROTOCOL: ${data.get('service')}
+DATA: ${data.get('message')}
+      `.trim();
+
+      if(!data.get('name') || !data.get('email') || !data.get('service') || !data.get('message')){
+        status.style.color = 'var(--warn)';
+        status.textContent = '> ERROR: MISSING REQUIRED PARAMETERS.';
+        return;
+      }
+
+      // Fallback mailto
+      const mailto = `mailto:chaudharyjangbahaduron@gmail.com?subject=${encodeURIComponent('C420 SECURE REQUEST')}&body=${encodeURIComponent(body)}`;
+      window.location.href = mailto;
+
+      status.style.color = 'var(--wa-green)';
+      status.textContent = '> MAIL CLIENT OPENED. USE WHATSAPP UPLINK IF TRANSMISSION FAILS.';
+    });
+  </script>
+</body>
+</html>
