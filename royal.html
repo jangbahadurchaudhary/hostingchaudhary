@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal 3D Printing Services | SYSTEM ACTIVE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+
+
+/* Base Sci-Fi Theme & Variables */
+:root {
+    --bg-color: #050508;
+    --neon-blue: #00f3ff;
+    --neon-green: #25D366; /* WhatsApp Green */
+    --neon-green-glow: #39ff14;
+    --dark-panel: #0a0b10;
+    --text-main: #a3c2c2;
+    --border-color: rgba(0, 243, 255, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background-color: var(--bg-color);
+    background-image: 
+        linear-gradient(rgba(0, 243, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 243, 255, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0;
+}
+
+/* =========================================
+   MASSIVE WHATSAPP BANNER
+   ========================================= */
+.whatsapp-master-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--neon-green);
+    color: #000;
+    padding: 25px 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    box-shadow: 0 0 30px rgba(37, 211, 102, 0.6);
+    border-bottom: 3px solid #fff;
+    transition: all 0.3s ease;
+    gap: 20px;
+}
+
+.whatsapp-master-banner:hover {
+    background-color: var(--neon-green-glow);
+    box-shadow: 0 0 50px rgba(57, 255, 20, 0.8);
+    color: #000;
+    padding: 30px 20px; /* Expands slightly on hover */
+}
+
+.wa-icon {
+    width: 60px;
+    height: 60px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* =========================================
+   MAIN LAYOUT & HERO
+   ========================================= */
+.container {
+    max-width: 1200px; /* Made wider for the "Big" feel */
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px 20px;
+    border: 2px solid var(--neon-blue);
+    background: radial-gradient(circle, rgba(0,243,255,0.1) 0%, rgba(0,0,0,0) 70%);
+    box-shadow: inset 0 0 30px rgba(0, 243, 255, 0.1);
+    position: relative;
+}
+
+.hero::before, .hero::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 3px solid var(--neon-blue);
+}
+
+.hero::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+.hero::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+.hero h1 {
+    font-size: 5rem;
+    color: #fff;
+    text-shadow: 0 0 20px var(--neon-blue), 0 0 40px var(--neon-blue);
+    margin-bottom: 0;
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+    color: var(--neon-blue);
+    opacity: 0.9;
+}
+
+.status-text {
+    font-size: 1.2rem;
+    color: var(--neon-green-glow);
+    margin-top: 20px;
+}
+
+.cursor { animation: blink 1s infinite; }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+/* =========================================
+   DATA PANELS (Sections)
+   ========================================= */
+.data-panel {
+    background-color: var(--dark-panel);
+    padding: 40px;
+    margin-bottom: 50px;
+    border: 1px solid var(--border-color);
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.data-panel h3 {
+    color: var(--neon-blue);
+    font-size: 1.8rem;
+    border-bottom: 2px dashed var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+
+.outline-panel {
+    border-left: 5px solid var(--neon-blue);
+    background: linear-gradient(90deg, rgba(0,243,255,0.05) 0%, transparent 100%);
+}
+
+.outline-panel p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+}
+
+/* =========================================
+   GRIDS (Services & Materials)
+   ========================================= */
+.grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.grid-item {
+    background: rgba(0, 243, 255, 0.03);
+    border: 1px solid rgba(0, 243, 255, 0.1);
+    padding: 25px;
+    transition: all 0.3s ease;
+}
+
+.grid-item:hover {
+    border-color: var(--neon-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 243, 255, 0.15);
+}
+
+.grid-item h4 {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.material-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.material-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding: 15px 0;
+}
+
+.mat-name {
+    font-family: 'Orbitron', sans-serif;
+    color: var(--neon-blue);
+    font-weight: bold;
+    font-size: 1.3rem;
+    width: 30%;
+}
+
+.mat-desc {
+    width: 65%;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   LISTS & WORKFLOW
+   ========================================= */
+.workflow-steps {
+    list-style-type: decimal-leading-zero;
+    color: var(--neon-blue);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    padding-left: 30px;
+}
+
+.workflow-steps li {
+    margin-bottom: 25px;
+}
+
+.workflow-steps strong {
+    color: #fff;
+    margin-right: 10px;
+}
+
+.workflow-steps code {
+    background: #000;
+    color: var(--neon-green-glow);
+    padding: 2px 8px;
+    border: 1px solid var(--neon-green-glow);
+    font-family: 'Share Tech Mono', monospace;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer {
+    text-align: center;
+    margin-top: 80px;
+    padding: 40px;
+    border-top: 2px solid var(--neon-blue);
+    background: #000;
+}
+
+footer h3 {
+    color: var(--neon-green-glow);
+    animation: pulse 2s infinite;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.contact-grid strong {
+    color: var(--neon-blue);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+   ========================================= */
+@media (max-width: 800px) {
+    .whatsapp-master-banner { flex-direction: column; font-size: 1.1rem; gap: 10px; text-align: center; }
+    .wa-icon { width: 40px; height: 40px; }
+    .hero h1 { font-size: 3rem; }
+    .material-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .mat-name, .mat-desc { width: 100%; }
+    .contact-grid { flex-direction: column; gap: 15px; }
+}
+
+
+
+</style>
+</head>
+<body>
+
+    <a href="https://wa.me/1112356897" class="whatsapp-master-banner" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="wa-icon">
+            <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+        <span>SYSTEM ONLINE - CLICK TO TRANSMIT BLUEPRINTS VIA WHATSAPP [1112356897]</span>
+    </a>
+
+    <div class="container">
+        <header class="hero">
+            <div class="hero-content">
+                <h1>ROYAL 3D</h1>
+                <h2>ADVANCED FABRICATION NODE</h2>
+                <p class="status-text">> UPLINK ESTABLISHED. READY FOR PRINT INITIATION <span class="cursor">_</span></p>
+            </div>
+        </header>
+
+        <section class="data-panel outline-panel">
+            <h3>[01] SYSTEM OVERVIEW</h3>
+            <p>Welcome to the Royal 3D fabrication grid. We are a high-performance additive manufacturing facility dedicated to transforming your digital schematics into physical reality. Whether you require micro-precision resin prints for dental/jewelry applications, or large-scale reinforced FDM structural components, our node operates with maximum efficiency, extreme precision, and rapid turnaround cycles.</p>
+        </section>
+
+        <section class="data-panel">
+            <h3>[02] CORE PROTOCOLS & SERVICES</h3>
+            <div class="grid-layout">
+                <div class="grid-item">
+                    <h4>> RAPID PROTOTYPING</h4>
+                    <p>Accelerate your engineering cycle. Test form, fit, and structural integrity before committing to expensive injection molding tooling.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>> CUSTOM HARDWARE</h4>
+                    <p>Materialize obsolete or custom parts. We reverse-engineer and synthesize replacement gears, brackets, and mechanical housings.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>> BATCH PRODUCTION</h4>
+                    <p>Low-to-medium volume manufacturing. Bridge the gap between a single prototype and mass production with consistent quality across 10 to 500 units.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>> COSPLAY & PROPS</h4>
+                    <p>High-detail, lightweight replication of armor, weapons, and accessories for the entertainment and cosplay industries.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>> ARCHITECTURAL SCALING</h4>
+                    <p>Precision topographical and structural miniatures. Bring floor plans to life for client presentations and tactical planning.</p>
+                </div>
+                <div class="grid-item">
+                    <h4>> CAD SYNTHESIS</h4>
+                    <p>Provide a physical sketch or dimensional data; our digital operatives will construct the 3D geometry (STL/STEP) required for fabrication.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="data-panel">
+            <h3>[03] SYNTHESIS MATERIALS MATRIX</h3>
+            <div class="material-list">
+                <div class="material-item">
+                    <span class="mat-name">PLA / PLA+</span>
+                    <span class="mat-desc">Optimal for rapid concept models. High detail resolution, rigid, and environmentally sustainable.</span>
+                </div>
+                <div class="material-item">
+                    <span class="mat-name">PETG</span>
+                    <span class="mat-desc">Hybrid structural integrity. High impact resistance and moisture tolerance for functional, outdoor mechanical units.</span>
+                </div>
+                <div class="material-item">
+                    <span class="mat-name">ABS / ASA</span>
+                    <span class="mat-desc">High thermal tolerance and UV resistance. Designed for end-use hardware subjected to extreme weather and mechanical wear.</span>
+                </div>
+                <div class="material-item">
+                    <span class="mat-name">TPU (FLEXIBLE)</span>
+                    <span class="mat-desc">Elastomeric parameters (shore hardness variations). Ideal for flexible joints, dampeners, custom tires, and resilient casings.</span>
+                </div>
+                <div class="material-item">
+                    <span class="mat-name">CARBON FIBER INFUSED</span>
+                    <span class="mat-desc">Extreme rigidity and lightweight properties. Deployed for drone frames, robotic arms, and high-stress automotive components.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="data-panel outline-panel">
+            <h3>[04] FABRICATION HARDWARE</h3>
+            <p>Our operational grid utilizes a diverse matrix of Fused Deposition Modeling (FDM) and Stereolithography (SLA) technology to match your specific requirements. Our lineup includes reliable, high-speed automated nodes like the Anycubic Kobra 2 Neo, ensuring your projects are executed with rapid bed leveling, consistent extrusion, and flawless surface resolution at accelerated print speeds.</p>
+        </section>
+
+        <section class="data-panel">
+            <h3>[05] EXECUTION SEQUENCE</h3>
+            <ol class="workflow-steps">
+                <li><strong>DATA TRANSMISSION:</strong> Uplink your <code>.STL</code>, <code>.OBJ</code>, or <code>.STEP</code> files via our secure WhatsApp line.</li>
+                <li><strong>GEOMETRY ANALYSIS:</strong> Our software slices the model, calculating exact gram-weight material expenditure and print duration.</li>
+                <li><strong>QUOTE GENERATION:</strong> You receive a transparent, itemized cost analysis and estimated time of completion (ETC).</li>
+                <li><strong>MANUFACTURING INITIATED:</strong> Upon authorization, the digital file is uploaded to the printing matrix and fabrication begins.</li>
+                <li><strong>POST-PROCESSING:</strong> Supports are removed, and the hardware is cleaned, cured, or sanded based on your specifications.</li>
+                <li><strong>DEPLOYMENT:</strong> The finalized component is securely packaged and deployed to your physical coordinates.</li>
+            </ol>
+        </section>
+
+        <footer>
+            <div class="footer-content">
+                <h3>>>> END OF TRANSMISSION <<<</h3>
+                <p>DO NOT LET YOUR CONCEPTS REMAIN DIGITAL. MATERIALIZE THEM.</p>
+                <div class="contact-grid">
+                    <div><strong>SECURE COMMS:</strong> 1112356897</div>
+                    <div><strong>DATALINK:</strong> contact@royal3dprintingservices.com</div>
+                    <div><strong>NODE LOCATION:</strong> Sector 4, Grid Alpha</div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
